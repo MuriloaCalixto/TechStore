@@ -1,0 +1,265 @@
+/* Reset básico para remover margens/paddings padrão e aplicar box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out; /* animação suave para mudanças */
+}
+
+/* Variáveis globais de cores */
+:root {
+    --primery-color: #ff4111;
+    --secondary-color: #2c3e50;
+    --accent-color: #3498db;
+    --text-color: #2c3e50;
+    --light-gray: #f8f9fa;
+    --border-color: #e9ecef;
+    --white-color: #ffffff;
+    --hover-btn: rgba(255, 255, 255, 0.1);
+    --outracor: #345345
+}
+
+/* Estilo do corpo da página */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background-color: var(--light-gray);
+    line-height: 1.6;
+}
+
+/* Cabeçalho do site */
+header {
+    background-color: var(--white-color);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* Logo (ícone + texto) */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* Espaçamento entre ícone e texto */
+}
+
+/* Título principal */
+h1 {
+    font-size: 32px;
+    color: var(--primery-color);
+    font-weight: bold;
+}
+
+/* Ícone de gamepad */
+.fa-gamepad{
+    color: var(--primery-color);
+    font-size: 32px;
+}
+
+/* Caixa de busca */
+.container-busca {
+    width: 100%;
+    max-width: 500px; /* Limita o tamanho da busca */
+    margin: 0 32px;
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: var(--light-gray);
+    border-radius: 24px;
+}
+
+/* Input de busca */
+.container-busca input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: var(--light-gray);
+    padding: 8px;
+    font-size: 16px;
+}
+
+/* Ícone da lupa */
+.fa-magnifying-glass {
+    color: var(--primery-color);
+}
+
+/* Container das categorias */
+.container-categorias {
+    display: flex;
+    justify-content: center;
+    background-color: var(--secondary-color);
+}
+
+/* Navegação das categorias */
+.container-categorias nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 8px 32px;
+}
+
+/* Botões das categorias */
+.botao-categoria {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: none;
+    border: none;
+    border-radius: 24px;
+    color: var(--white-color);
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+/* Hover nos botões das categorias */
+.botao-categoria:hover {
+    background-color: var(--hover-btn);
+}
+
+/* Categoria ativa */
+.botao-categoria.ativo {
+    background-color: var(--primery-color);
+}
+
+/* Seção hero (banner principal) */
+.secao-hero {
+    background: #020024;
+background: linear-gradient(135deg, #020024 0%, #091097 50%, #00d4ff 100%);
+    color: var(--white-color);
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 32px;
+}
+
+/* Seção de produtos */
+.produtos {
+    width: 100%;
+    max-width: 1200px;
+    padding: 32px;
+    margin: 0 auto; /* Centraliza */
+}
+
+/* Grid de produtos */
+.produtos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Responsivo */
+    gap: 20px; 
+}
+
+/* Cartão do produto */
+.cartao-produtos {
+    position: relative;
+    background-color: var(--white-color);
+    border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    cursor: pointer;
+    overflow: hidden; /* Impede que a imagem ultrapasse o card */
+}
+
+/* Hover no cartão */
+.cartao-produtos:hover {
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    transform: translateY(-5px); /* Move o card para cima */
+    transition: 0.5s;
+}
+
+/* Gradiente entre imagem e conteúdo do card */
+.cartao-produtos::after {
+    content: "";
+    position: absolute;
+    top: 160px; /* altura onde a imagem acaba */
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, white);
+}
+
+/* Imagem do produto */
+.imagem-produto {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* ajusta a imagem */
+    border-radius: 20px 20px 0 0; /* arredonda só a parte de cima */
+    transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+}
+
+/* Hover na imagem do produto */
+.imagem-produto:hover {
+    transform: scale(1.05); /* zoom */
+    filter: brightness(1.05); /* aumenta o brilho */
+}
+
+/* Área de informações do produto */
+.info-produto {
+    padding: 16px;
+    background: linear-gradient(to top, white 85%, rgba(255,255,255,0) 100%);
+}
+
+/* Nome do produto */
+.nome-produto {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+/* Descrição do produto */
+.descricao-produto {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+/* Preço do produto */
+.preco-produto {
+    font-size: 20px;
+    color: var(--primery-color);
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+/* Botão dentro do card de produto */
+.botao-produto {
+    width: 100%;
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+/* Hover no botão do produto */
+.botao-produto:hover {
+    background-color: #39aefc;
+    transition: 0.3s;
+}
+
+/* ================== RESPONSIVIDADE ================== */
+@media (max-width: 768px) {
+    /* Título menor em telas pequenas */
+    h1 {
+        font-size: 24px;
+    }
+
+    /* Botões de categoria menores */
+    .botao-categoria {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    /* Grid de produtos mais adaptado para celular */
+    .produtos-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
